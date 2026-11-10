@@ -98,11 +98,13 @@ html, body, .stApp, [class*="css"] {
   margin-bottom: 4px;
   box-shadow: 0 8px 24px rgba(6, 78, 59, 0.16);
 }
-.hero-title {
-  font-size: 34px; font-weight: 800; color: #FFFFFF !important;
+h1.hero-title {
+  font-size: 34px !important; font-weight: 800; color: #FFFFFF !important;
   margin: 0; letter-spacing: -0.03em; line-height: 1.12;
 }
-.hero-title span { color: #6EE7B7 !important; }
+.hero-title [data-heading-text] { color: #FFFFFF !important; }
+.hero-title [data-heading-text] span { color: #6EE7B7 !important; }
+.hero-title > span:not([data-heading-text]):not([data-testid]) { color: #6EE7B7 !important; }
 
 /* ------------------------------ Cards ------------------------------- */
 .card-marker { display: none; }
@@ -205,19 +207,27 @@ table.data-table tbody tr:last-child td { border-bottom: none; }
 .chip-gray { background: #F1F5F9; color: #475569; }
 
 /* -------------------------------- Tabs ------------------------------ */
-div[data-baseweb="tab-list"] {
+div[data-baseweb="tab-list"],
+[data-testid="stTabs"] [role="tablist"] {
   gap: 6px; background: #FFFFFF; padding: 6px;
   border-radius: 12px; border: 1px solid #DCFCE7;
   width: fit-content; box-shadow: 0 1px 3px rgba(20, 83, 45, 0.04);
 }
-button[data-baseweb="tab"] {
+button[data-baseweb="tab"],
+[data-testid="stTabs"] [role="tab"] {
   border-radius: 9px; padding: 7px 16px;
   color: #64748B; font-weight: 600; font-size: 13px;
-  background: transparent;
+  background: transparent; cursor: pointer;
 }
-button[data-baseweb="tab"]:hover { background: #F1F8F2; color: #14532D; }
-button[data-baseweb="tab"][aria-selected="true"] { background: #DCFCE7; color: #14532D; }
-div[data-baseweb="tab-highlight"], div[data-baseweb="tab-border"] { display: none; }
+[data-testid="stTabs"] [role="tab"] p {
+  margin: 0; color: inherit; font-size: inherit; font-weight: inherit;
+}
+button[data-baseweb="tab"]:hover,
+[data-testid="stTabs"] [role="tab"]:hover { background: #F1F8F2; color: #14532D; }
+button[data-baseweb="tab"][aria-selected="true"],
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] { background: #DCFCE7; color: #14532D; }
+div[data-baseweb="tab-highlight"], div[data-baseweb="tab-border"],
+[data-testid="stTabs"] .react-aria-SelectionIndicator { display: none; }
 [data-testid="stTabs"] { margin-top: 4px; }
 
 /* ------------------------------ Widgets ----------------------------- */
@@ -243,11 +253,13 @@ div[data-baseweb="input"] { border-radius: 10px; border-color: #DCFCE7; }
 @media (max-width: 900px) {
   [data-testid="stMainBlockContainer"], .block-container { padding: 1rem 1rem 2rem; }
   .hero { padding: 24px 16px; min-height: 96px; }
-  .hero-title { font-size: 26px; }
-  div[data-baseweb="tab-list"] {
+  h1.hero-title { font-size: 26px !important; }
+  div[data-baseweb="tab-list"],
+  [data-testid="stTabs"] [role="tablist"] {
     width: 100%; flex-wrap: wrap; overflow-x: auto;
   }
-  button[data-baseweb="tab"] { padding: 7px 12px; font-size: 12px; }
+  button[data-baseweb="tab"],
+  [data-testid="stTabs"] [role="tab"] { padding: 7px 12px; font-size: 12px; }
   .js-plotly-plot .heatmap-label { font-size: 8px !important; }
 }
 </style>
