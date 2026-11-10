@@ -1,0 +1,17 @@
+{
+  "total_revenue": 15422461.77,
+  "total_orders": 96478,
+  "total_customers": 93358,
+  "aov": 159.8563571628471,
+  "repeat_rate": 3.0002784978255748,
+  "avg_review": 4.1561864512897575,
+  "delivery_rate": 97.02034372140264,
+  "cancel_rate": 0.6285133898492574,
+  "late_rate": 6.77252845208234,
+  "date_min": "2016-09-04",
+  "date_max": "2018-10-17",
+  "top_state": "SP",
+  "churn_customers": 23227,
+  "revenue_at_risk": 3807014.7800000003,
+  "p75_recency": 395.0
+}
